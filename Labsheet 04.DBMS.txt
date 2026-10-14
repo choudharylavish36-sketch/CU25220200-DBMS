@@ -1,0 +1,176 @@
+Q1. Perform addition of two numbers using the + operator.
+SELECT 10 AS Number1,
+       20 AS Number2,
+       10 + 20 AS Addition;
+Q2. Perform subtraction using the - operator.
+SELECT 50 AS Number1,
+       20 AS Number2,
+       50 - 20 AS Subtraction;
+Q3. Perform multiplication using the * operator.
+SELECT 10 AS Number1,
+       5 AS Number2,
+       10 * 5 AS Multiplication;
+Q4. Perform division using the / operator.
+SELECT 100 AS Number1,
+       5 AS Number2,
+       100 / 5 AS Division;
+Q5. Calculate the total amount as Price × Quantity.
+CREATE TABLE Product (
+    Product_ID INT PRIMARY KEY,
+    Product_Name VARCHAR(50),
+    Price DECIMAL(10,2),
+    Quantity INT
+);
+
+INSERT INTO Product
+VALUES
+(1, 'Laptop', 50000, 2),
+(2, 'Mouse', 500, 5),
+(3, 'Keyboard', 1200, 3),
+(4, 'Monitor', 10000, 2);
+
+SELECT Product_ID,
+       Product_Name,
+       Price,
+       Quantity,
+       Price * Quantity AS Total_Amount
+FROM Product;
+B. Logical Operators
+Q6. Demonstrate the AND operator using two conditions.
+SELECT *
+FROM Employee
+WHERE Salary > 20000
+  AND Department = 'IT';
+Q7. Demonstrate the OR operator using two conditions.
+SELECT *
+FROM Employee
+WHERE Department = 'IT'
+   OR Department = 'HR';
+Q8. Demonstrate the NOT operator using a condition.
+SELECT *
+FROM Employee
+WHERE NOT Department = 'IT';
+Q9. Find students belonging to a specific course and city.
+SELECT *
+FROM Student
+WHERE Course = 'BCA'
+  AND City = 'Delhi';
+Q10. Find employees belonging to either of two departments.
+SELECT Emp_ID,
+       Emp_Name,
+       Department,
+       Salary
+FROM Employee
+WHERE Department = 'IT'
+   OR Department = 'HR';
+C. Comparison Operators
+Q11. Demonstrate the equality (=) operator.
+SELECT *
+FROM Employee
+WHERE Department = 'IT';
+Q12. Demonstrate the greater-than (>) operator.
+SELECT Emp_ID,
+       Emp_Name,
+       Salary
+FROM Employee
+WHERE Salary > 30000;
+Q13. Demonstrate the less-than (<) operator.
+SELECT Emp_ID,
+       Emp_Name,
+       Salary
+FROM Employee
+WHERE Salary < 30000;
+Q14. Demonstrate the >= and <= operators.
+SELECT Emp_ID,
+       Emp_Name,
+       Department,
+       Salary
+FROM Employee
+WHERE Salary >= 20000
+  AND Salary <= 50000;
+Q15. Demonstrate the not-equal-to (<>) operator.
+SELECT Emp_ID,
+       Emp_Name,
+       Department,
+       Salary
+FROM Employee
+WHERE Department <> 'HR';
+D. Special Operators
+Q16. Demonstrate the BETWEEN operator for a salary range.
+SELECT Emp_ID,
+       Emp_Name,
+       Salary
+FROM Employee
+WHERE Salary BETWEEN 20000 AND 50000;
+Q17. Demonstrate the IN operator to select multiple cities.
+SELECT *
+FROM Student
+WHERE City IN ('Delhi', 'Mumbai', 'Jaipur');
+Q18. Demonstrate the NOT IN operator.
+SELECT *
+FROM Student
+WHERE City NOT IN ('Delhi', 'Mumbai');
+Q19. Demonstrate the LIKE operator for names beginning with a particular letter.
+SELECT *
+FROM Student
+WHERE Name LIKE 'A%';
+Q20. Demonstrate IS NULL and IS NOT NULL.
+SELECT *
+FROM Employee
+WHERE Department IS NULL;
+
+SELECT *
+FROM Employee
+WHERE Department IS NOT NULL;
+E. Set Operations
+Q21. Demonstrate UNION using two compatible queries.
+SELECT Name AS Student_Name
+FROM Student
+WHERE City = 'Delhi'
+
+UNION
+
+SELECT Name AS Student_Name
+FROM Student
+WHERE City = 'Mumbai';
+Q22. Demonstrate UNION ALL.
+SELECT Name AS Student_Name
+FROM Student
+WHERE City = 'Delhi'
+
+UNION ALL
+
+SELECT Name AS Student_Name
+FROM Student
+WHERE City = 'Mumbai';
+Q23. Demonstrate INTERSECT where supported by the DBMS.
+SELECT Name
+FROM Student
+WHERE City = 'Delhi'
+
+INTERSECT
+
+SELECT Name
+FROM Student
+WHERE Course = 'BCA';
+Q24. Demonstrate EXCEPT/MINUS where supported by the DBMS.
+SELECT Name
+FROM Student
+WHERE City = 'Delhi'
+
+EXCEPT
+
+SELECT Name
+FROM Student
+WHERE Course = 'BCA';
+Q25. Use arithmetic, logical, comparison and special operators together.
+SELECT Product_ID,
+       Product_Name,
+       Price,
+       Quantity,
+       Price * Quantity AS Total_Amount
+FROM Product
+WHERE Price BETWEEN 100 AND 50000
+  AND Quantity >= 2
+  AND Product_Name LIKE 'L%'
+  AND Price * Quantity > 1000;

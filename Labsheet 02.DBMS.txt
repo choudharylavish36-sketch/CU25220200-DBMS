@@ -1,0 +1,165 @@
+Q1. Insert one record into the Student table.
+INSERT INTO Student
+(Student_ID, Name, Age, Course, City)
+VALUES
+(1, 'Rahul', 20, 'BCA', 'Delhi');
+Q2. Insert five student records using separate INSERT statements.
+INSERT INTO Student VALUES (2, 'Aman', 21, 'B.Tech', 'Jaipur');
+
+INSERT INTO Student VALUES (3, 'Priya', 19, 'BCA', 'Meerut');
+
+INSERT INTO Student VALUES (4, 'Rohit', 22, 'BBA', 'Delhi');
+
+INSERT INTO Student VALUES (5, 'Neha', 20, 'BCA', 'Noida');
+
+INSERT INTO Student VALUES (6, 'Ankit', 21, 'B.Tech', 'Agra');
+Q3. Insert multiple records using a single INSERT statement.
+INSERT INTO Student
+(Student_ID, Name, Age, Course, City)
+VALUES
+(7, 'Karan', 20, 'BCA', 'Delhi'),
+(8, 'Simran', 21, 'B.Tech', 'Jaipur'),
+(9, 'Mohit', 22, 'BBA', 'Noida');
+Q4. Insert records into the Employee table.
+INSERT INTO Employee
+(Emp_ID, Emp_Name, Department, Salary)
+VALUES
+(101, 'Amit', 'IT', 35000),
+(102, 'Sumit', 'HR', 30000),
+(103, 'Priya', 'Finance', 40000),
+(104, 'Rohan', 'IT', 45000),
+(105, 'Neha', 'Sales', 32000);
+Q5. Insert records into the Department table.
+INSERT INTO Department
+(Dept_ID, Dept_Name, Location)
+VALUES
+(1, 'Computer Science', 'Delhi'),
+(2, 'Mechanical', 'Jaipur'),
+(3, 'Electrical', 'Noida'),
+(4, 'Management', 'Meerut');
+Q6. Insert records into the Product table.
+INSERT INTO Product
+(Product_ID, Product_Name, Price, Quantity)
+VALUES
+(1, 'Laptop', 50000, 10),
+(2, 'Mouse', 500, 25),
+(3, 'Keyboard', 1000, 15),
+(4, 'Monitor', 12000, 8),
+(5, 'Headphones', 1500, 0);
+Q7. Insert records into the Customer table.
+INSERT INTO Customer
+(Customer_ID, Customer_Name, Email, Phone)
+VALUES
+(1, 'Rahul', 'rahul@gmail.com', '9876543210'),
+(2, 'Aman', 'aman@gmail.com', '9876543211'),
+(3, 'Priya', 'priya@gmail.com', '9876543212');
+Q8. Insert records into the Course table.
+INSERT INTO Course
+(Course_ID, Course_Name, Duration, Fees)
+VALUES
+(1, 'BCA', '3 Years', 90000),
+(2, 'B.Tech', '4 Years', 400000),
+(3, 'BBA', '3 Years', 120000),
+(4, 'MCA', '2 Years', 150000);
+Q9. Insert a student record with values for all columns.
+INSERT INTO Student
+(Student_ID, Name, Age, Course, City)
+VALUES
+(10, 'Vikas', 22, 'BCA', 'Delhi');
+Q10. Insert a student record by specifying only selected columns.
+INSERT INTO Student
+(Student_ID, Name, City)
+VALUES
+(11, 'Deepak', 'Jaipur');
+
+
+Q11. Update the city of a particular student.
+UPDATE Student
+SET City = 'Mumbai'
+WHERE Student_ID = 1;
+Q12. Update the salary of a particular employee.
+UPDATE Employee
+SET Salary = 50000
+WHERE Emp_ID = 101;
+Q13. Increase the salary of all employees by 10%.
+UPDATE Employee
+SET Salary = Salary * 1.10;
+Q14. Increase the price of all products by 5%.
+UPDATE Product
+SET Price = Price * 1.05;
+Q15. Change the course of a particular student.
+UPDATE Student
+SET Course = 'B.Tech'
+WHERE Student_ID = 1;
+Q16. Update the department of an employee.
+UPDATE Employee
+SET Department = 'Finance'
+WHERE Emp_ID = 102;
+Q17. Update the city of all students from Meerut to Delhi.
+UPDATE Student
+SET City = 'Delhi'
+WHERE City = 'Meerut';
+Q18. Update the fees of a particular course.
+UPDATE Course
+SET Fees = 100000
+WHERE Course_ID = 1;
+Q19. Update multiple columns of a student simultaneously.
+UPDATE Student
+SET Age = 21,
+    Course = 'B.Tech',
+    City = 'Noida'
+WHERE Student_ID = 2;
+Q20. Delete a particular student record using Student_ID.
+DELETE FROM Student
+WHERE Student_ID = 11;
+Q21. Delete all students belonging to a particular city.
+DELETE FROM Student
+WHERE City = 'Jaipur';
+Q22. Delete employees whose salary is below a specified amount.
+DELETE FROM Employee
+WHERE Salary < 25000;
+Q23. Delete products whose quantity is zero.
+DELETE FROM Product
+WHERE Quantity = 0;
+Q24. Delete records satisfying multiple conditions using AND/OR.
+
+Using AND:
+
+DELETE FROM Student
+WHERE City = 'Delhi'
+AND Age > 21;
+
+Using OR:
+
+DELETE FROM Student
+WHERE City = 'Agra'
+OR City = 'Noida';
+
+Q25. Perform a complete sequence of INSERT, UPDATE and DELETE operations on a Student table and display the table after each operation.
+Step 1: Create the Student table
+CREATE TABLE Student_DML (
+    Student_ID INT PRIMARY KEY,
+    Name VARCHAR(50),
+    Age INT,
+    Course VARCHAR(50),
+    City VARCHAR(50)
+);
+Step 2: Insert records
+INSERT INTO Student_DML
+VALUES
+(1, 'Rahul', 20, 'BCA', 'Delhi'),
+(2, 'Aman', 21, 'B.Tech', 'Jaipur'),
+(3, 'Priya', 19, 'BBA', 'Noida');
+Step 3: Display the table
+SELECT * FROM Student_DML;
+Step 4: Update a record
+UPDATE Student_DML
+SET City = 'Mumbai'
+WHERE Student_ID = 1;
+Step 5: Display the updated table
+SELECT * FROM Student_DML;
+Step 6: Delete a record
+DELETE FROM Student_DML
+WHERE Student_ID = 3;
+Step 7: Display the final table
+SELECT * FROM Student_DML;

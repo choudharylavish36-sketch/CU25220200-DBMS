@@ -1,0 +1,169 @@
+Q1. Create a database named CollegeDB.
+CREATE DATABASE CollegeDB;
+Q2. Create a Student table.
+USE CollegeDB;
+
+CREATE TABLE Student (
+    Student_ID INT,
+    Name VARCHAR(50),
+    Age INT,
+    Course VARCHAR(50),
+    City VARCHAR(50)
+);
+Q3. Create an Employee table.
+CREATE TABLE Employee (
+    Emp_ID INT,
+    Emp_Name VARCHAR(50),
+    Department VARCHAR(50),
+    Salary DECIMAL(10,2)
+);
+Q4. Create a Department table.
+CREATE TABLE Department (
+    Dept_ID INT,
+    Dept_Name VARCHAR(50),
+    Location VARCHAR(50)
+);
+Q5. Create a Product table.
+CREATE TABLE Product (
+    Product_ID INT,
+    Product_Name VARCHAR(100),
+    Price DECIMAL(10,2),
+    Quantity INT
+);
+Q6. Create a Customer table.
+CREATE TABLE Customer (
+    Customer_ID INT,
+    Customer_Name VARCHAR(50),
+    Email VARCHAR(100),
+    Phone VARCHAR(15)
+);
+Q7. Create a Course table.
+CREATE TABLE Course (
+    Course_ID INT,
+    Course_Name VARCHAR(100),
+    Duration VARCHAR(50),
+    Fees DECIMAL(10,2)
+);
+Q8. Create a Faculty table.
+CREATE TABLE Faculty (
+    Faculty_ID INT,
+    Faculty_Name VARCHAR(50),
+    Subject VARCHAR(50),
+    Salary DECIMAL(10,2)
+);
+Q9. Create a Library table.
+CREATE TABLE Library (
+    Book_ID INT,
+    Book_Name VARCHAR(100),
+    Author VARCHAR(100),
+    Price DECIMAL(10,2)
+);
+Q10. Create a Department table with Dept_ID as Primary Key.
+CREATE TABLE Department2 (
+    Dept_ID INT PRIMARY KEY,
+    Dept_Name VARCHAR(50),
+    Location VARCHAR(50)
+);
+
+
+Q11. Create a Student table with Student_ID as Primary Key and Name as NOT NULL.
+CREATE TABLE Student2 (
+    Student_ID INT PRIMARY KEY,
+    Name VARCHAR(50) NOT NULL,
+    Age INT,
+    Course VARCHAR(50),
+    City VARCHAR(50)
+);
+Q12. Create an Employee table with UNIQUE constraint on Email.
+CREATE TABLE Employee2 (
+    Emp_ID INT PRIMARY KEY,
+    Emp_Name VARCHAR(50),
+    Department VARCHAR(50),
+    Salary DECIMAL(10,2),
+    Email VARCHAR(100) UNIQUE
+);
+Q13. Create a Product table with CHECK constraint that Price > 0.
+CREATE TABLE Product2 (
+    Product_ID INT PRIMARY KEY,
+    Product_Name VARCHAR(100),
+    Price DECIMAL(10,2) CHECK (Price > 0),
+    Quantity INT
+);
+Q14. Add a new Email column to the Student table.
+ALTER TABLE Student
+ADD Email VARCHAR(100);
+Q15. Add a Phone column to the Student table.
+ALTER TABLE Student
+ADD Phone VARCHAR(15);
+Q16. Modify the datatype/size of the Name column in Student table.
+ALTER TABLE Student
+MODIFY Name VARCHAR(100);
+
+
+Q17. Rename the Student table to Student_Details.
+RENAME TABLE Student TO Student_Details;
+Q18. Rename the column City to Address.
+ALTER TABLE Student_Details
+RENAME COLUMN City TO Address;
+Q19. Add a Salary column to the Employee table.
+ALTER TABLE Employee
+ADD Salary DECIMAL(10,2);
+
+
+ALTER TABLE Employee
+ADD Bonus DECIMAL(10,2);
+
+
+Q20. Drop the Phone column from Student table.
+ALTER TABLE Student_Details
+DROP COLUMN Phone;
+Q21. Drop the Email column from Student table.
+ALTER TABLE Student_Details
+DROP COLUMN Email;
+Q22. Remove all records from a table using TRUNCATE.
+TRUNCATE TABLE Student_Details;
+
+Q23. Drop the Course table from the database.
+DROP TABLE Course;
+Q24. Drop the Customer table from the database.
+DROP TABLE Customer;
+Q25. Create a complete Student table using Primary Key, NOT NULL, UNIQUE and CHECK constraints. Demonstrate ALTER and DROP operations.
+Step 1: Create Student table
+CREATE TABLE Student_Complete (
+    Student_ID INT PRIMARY KEY,
+    Name VARCHAR(50) NOT NULL,
+    Email VARCHAR(100) UNIQUE,
+    Age INT CHECK (Age >= 18),
+    Course VARCHAR(50),
+    City VARCHAR(50)
+);
+Step 2: Insert sample records
+INSERT INTO Student_Complete
+(Student_ID, Name, Email, Age, Course, City)
+VALUES
+(1, 'Rahul', 'rahul@gmail.com', 20, 'BCA', 'Delhi'),
+(2, 'Aman', 'aman@gmail.com', 21, 'B.Tech', 'Jaipur'),
+(3, 'Priya', 'priya@gmail.com', 19, 'BCA', 'Meerut');
+Step 3: Display the table
+SELECT * FROM Student_Complete;
+Step 4: Demonstrate ALTER
+
+Add a Phone column:
+
+ALTER TABLE Student_Complete
+ADD Phone VARCHAR(15);
+
+Modify the Name column:
+
+ALTER TABLE Student_Complete
+MODIFY Name VARCHAR(100);
+Step 5: Demonstrate DROP
+
+Remove the Phone column:
+
+ALTER TABLE Student_Complete
+DROP COLUMN Phone;
+
+Drop the complete table:
+
+DROP TABLE Student_Complete;

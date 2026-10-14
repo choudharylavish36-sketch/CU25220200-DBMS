@@ -1,0 +1,223 @@
+Q1. Demonstrate INNER JOIN to display matching records from two tables.
+SELECT
+    Student.Student_ID,
+    Student.Name,
+    Student.Course_ID,
+    Course.Course_Name
+FROM Student
+INNER JOIN Course
+    ON Student.Course_ID = Course.Course_ID;
+Q2. Demonstrate LEFT JOIN to display all students and their course details.
+SELECT
+    Student.Student_ID,
+    Student.Name,
+    Student.Course_ID,
+    Course.Course_Name
+FROM Student
+LEFT JOIN Course
+    ON Student.Course_ID = Course.Course_ID;
+Q3. Demonstrate RIGHT JOIN to display all courses and their student details.
+SELECT
+    Student.Student_ID,
+    Student.Name,
+    Course.Course_ID,
+    Course.Course_Name
+FROM Student
+RIGHT JOIN Course
+    ON Student.Course_ID = Course.Course_ID;
+Q4. Demonstrate CROSS JOIN between two tables.
+SELECT
+    Student.Name,
+    Course.Course_Name
+FROM Student
+CROSS JOIN Course;
+Q5. Demonstrate SELF JOIN to display employees and their managers.
+SELECT
+    E.Emp_ID,
+    E.Emp_Name AS Employee_Name,
+    M.Emp_Name AS Manager_Name
+FROM Employee E
+LEFT JOIN Employee M
+    ON E.Manager_ID = M.Emp_ID;
+Q6. Display student names with their department names using INNER JOIN.
+SELECT
+    Student.Name,
+    Department.Department_Name
+FROM Student
+INNER JOIN Department
+    ON Student.Department_ID = Department.Department_ID;
+Q7. Display all students, including those who do not have a matching department.
+SELECT
+    Student.Student_ID,
+    Student.Name,
+    Department.Department_Name
+FROM Student
+LEFT JOIN Department
+    ON Student.Department_ID = Department.Department_ID;
+Q8. Display all departments, including departments without students.
+SELECT
+    Department.Department_ID,
+    Department.Department_Name,
+    Student.Name
+FROM Student
+RIGHT JOIN Department
+    ON Student.Department_ID = Department.Department_ID;
+Q9. Display employee names and their department names.
+SELECT
+    Employee.Emp_ID,
+    Employee.Emp_Name,
+    Employee.Department,
+    Department.Department_Name
+FROM Employee
+INNER JOIN Department
+    ON Employee.Department = Department.Department_Name;
+Q10. Display employees whose salary is greater than ₹30,000 with their department details.
+SELECT
+    Employee.Emp_ID,
+    Employee.Emp_Name,
+    Employee.Salary,
+    Department.Department_Name
+FROM Employee
+INNER JOIN Department
+    ON Employee.Department = Department.Department_Name
+WHERE Employee.Salary > 30000;
+Q11. Display student names and their course names using INNER JOIN.
+SELECT
+    Student.Student_ID,
+    Student.Name,
+    Course.Course_Name
+FROM Student
+INNER JOIN Course
+    ON Student.Course_ID = Course.Course_ID;
+Q12. Display all students and their course names using LEFT JOIN.
+SELECT
+    Student.Student_ID,
+    Student.Name,
+    Course.Course_Name
+FROM Student
+LEFT JOIN Course
+    ON Student.Course_ID = Course.Course_ID;
+Q13. Display all courses and their students using RIGHT JOIN.
+SELECT
+    Course.Course_ID,
+    Course.Course_Name,
+    Student.Student_ID,
+    Student.Name
+FROM Student
+RIGHT JOIN Course
+    ON Student.Course_ID = Course.Course_ID;
+Q14. Display employee names and their managers using SELF JOIN.
+SELECT
+    E.Emp_ID,
+    E.Emp_Name AS Employee_Name,
+    M.Emp_Name AS Manager_Name
+FROM Employee E
+LEFT JOIN Employee M
+    ON E.Manager_ID = M.Emp_ID;
+Q15. Display students and their examination marks using INNER JOIN.
+SELECT
+    Student.Student_ID,
+    Student.Name,
+    Marks.Subject,
+    Marks.Marks_Obtained
+FROM Student
+INNER JOIN Marks
+    ON Student.Student_ID = Marks.Student_ID;
+Q16. Display all students, including those who have not received marks.
+SELECT
+    Student.Student_ID,
+    Student.Name,
+    Marks.Subject,
+    Marks.Marks_Obtained
+FROM Student
+LEFT JOIN Marks
+    ON Student.Student_ID = Marks.Student_ID;
+Q17. Display students who scored more than 80 marks.
+SELECT
+    Student.Student_ID,
+    Student.Name,
+    Marks.Subject,
+    Marks.Marks_Obtained
+FROM Student
+INNER JOIN Marks
+    ON Student.Student_ID = Marks.Student_ID
+WHERE Marks.Marks_Obtained > 80;
+Q18. Display student names and their library book details.
+SELECT
+    Student.Student_ID,
+    Student.Name,
+    Library.Book_ID,
+    Library.Book_Name
+FROM Student
+INNER JOIN Library
+    ON Student.Student_ID = Library.Student_ID;
+Q19. Display all students and their library book details, including students who have not borrowed books.
+SELECT
+    Student.Student_ID,
+    Student.Name,
+    Library.Book_ID,
+    Library.Book_Name
+FROM Student
+LEFT JOIN Library
+    ON Student.Student_ID = Library.Student_ID;
+Q20. Display employee names and their project names.
+SELECT
+    Employee.Emp_ID,
+    Employee.Emp_Name,
+    Project.Project_Name
+FROM Employee
+INNER JOIN Project
+    ON Employee.Emp_ID = Project.Emp_ID;
+Q21. Demonstrate joining three tables to display student names, course names and department names.
+SELECT
+    Student.Student_ID,
+    Student.Name,
+    Course.Course_Name,
+    Department.Department_Name
+FROM Student
+INNER JOIN Course
+    ON Student.Course_ID = Course.Course_ID
+INNER JOIN Department
+    ON Student.Department_ID = Department.Department_ID;
+Q22. Display students with their courses and examination marks.
+SELECT
+    Student.Name,
+    Course.Course_Name,
+    Marks.Subject,
+    Marks.Marks_Obtained
+FROM Student
+INNER JOIN Course
+    ON Student.Course_ID = Course.Course_ID
+INNER JOIN Marks
+    ON Student.Student_ID = Marks.Student_ID;
+Q23. Display employees who do not belong to any matching department.
+SELECT
+    Employee.Emp_ID,
+    Employee.Emp_Name,
+    Employee.Department
+FROM Employee
+LEFT JOIN Department
+    ON Employee.Department = Department.Department_Name
+WHERE Department.Department_ID IS NULL;
+Q24. Display departments that have no employees.
+SELECT
+    Department.Department_ID,
+    Department.Department_Name
+FROM Department
+LEFT JOIN Employee
+    ON Department.Department_Name = Employee.Department
+WHERE Employee.Emp_ID IS NULL;
+Q25. Display student names, course names and marks for students who scored more than 75.
+SELECT
+    Student.Student_ID,
+    Student.Name,
+    Course.Course_Name,
+    Marks.Subject,
+    Marks.Marks_Obtained
+FROM Student
+INNER JOIN Course
+    ON Student.Course_ID = Course.Course_ID
+INNER JOIN Marks
+    ON Student.Student_ID = Marks.Student_ID
+WHERE Marks.Marks_Obtained > 75
+ORDER BY Marks.Marks_Obtained DESC;
